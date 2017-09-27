@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ book_name }}</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    .nove_list ul li{
+        list-style: none;
+        text-align: left;
+        display: inline-block;
+    }
+    .container span{
+        font-size: 18px;
+    }
+    .list{
+        display: block;
+        width:500px;
+        height: 40px;
+
+}
+        .book-img{
+            display: block;
+            position: relative;
+            width: 140px;
+            height: 200px;
+        }
+        .list span {
+            font-size: 16px;
+        }
+        .intro{
+            position: relative;
+        }
+        .novelist{
+            padding-left: 10px;
+        }
+        .book_info{
+            margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+            <div class="book-info2"><h2>{{ book_name }}<span class="lead novelist">{{ author }}</span></h2>
+            <p class="text-left intro lead">
+            {{ intro | safe |linebreaksbr }}
+            </p></div>
+        <ol class="breadcrumb text-left">
+  <li><a href="/">首页</a></li>
+  <li class="active">{{ book_name }}</li>
+</ol>
+        <div class="text-left lead nove_list dasda">
+        <ul class="title-list">
+        <p class="lead">源列表：</p>
+            {% for i,j,k,l in book_info %}
+            <li class="list" lead><a href="/catalog/{{ bookID }}/{{ j }}/?name={{ book_name }}">{{ i }}：</a><span>最新章节：{{ l }}</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
+    <p class="text-center ">本站所收录作品均来自互联网
+    </p>
+  </div>
+</footer>
+</body>
+</html>

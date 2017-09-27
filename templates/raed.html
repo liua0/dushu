@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body{
+            background: #ede7da;
+        }
+        h3{
+            margin-top: 40px;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+        .content{
+        }
+        .nav_ul{
+            margin-top: 50px;
+        }
+        .fot_nav{
+            font-size: 20px;
+            color: #555;
+        }
+        .nav_left{
+         float: left;
+        }
+        .nav_right {
+            float: right;
+        }
+        .con-text{
+            line-height: 40px;
+            font-size: 18px;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+        }
+        .con-text p{
+            text-indent:2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 class="text-center">{{ title }}</h3>
+            <ol class="breadcrumb text-left">
+  <li><a href="/">首页</a></li>
+  <li class="active"><a href="/book/{{ book_id }}">{{ name }}</a></li>
+</ol>
+    <div class="con-text">
+        {% for text in body %}
+            <p>{{ text }}</p><br/>
+        {% endfor %}
+    </div>
+<nav aria-label="...">
+  <ul class="pager nav_ul lead">
+  {% if last <= 0 %}
+      <li><a class="fot_nav nav_left" href="/reading/{{ id }}{{ book_id }}">上一章</a></li>
+  {% else %}
+      <li><a class="fot_nav nav_left" href="./{{ last }}">上一章</a></li>
+  {% endif %}
+    <li><a class="fot_nav" href="/read/{{ id }}/{{ book_id }}">目录</a></li>
+
+      {% if next == -99%}
+          <li><a class="fot_nav nav_right" href="/read/{{ id }}/{{ book_id }}">下一章</a></li>
+      {% else %}
+          <li><a class="fot_nav nav_right" href="./{{ next }}">下一章</a></li>
+      {% endif %}
+  </ul>
+</nav>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
+    <p class="text-center ">本站所收录作品均来自互联网
+    </p>
+  </div>
+</footer>
+</body>
+</html>
