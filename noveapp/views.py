@@ -95,3 +95,7 @@ def read(request,id,book_id,titleID):
         'id':id
     }
     return render(request,'raed.html',context=context)
+def search(request):
+    keyword = request.GET.get('keyword')
+    data = get_data('http://api.zhuishushenqi.com/book/fuzzy-search?query='+keyword)
+    return HttpResponse(data)
