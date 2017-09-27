@@ -57,29 +57,29 @@
         margin-right: 0;
         padding: 0;
     }
-    .intro{
-        position: relative;
-        top: 50px;
-        left: -110px;
-        overflow: hidden;
+    .word{
+        font-size: 18px;
+    }
+    .keyword{
+        color: red;
+        padding:0 10px;
 
     }
-    .intro{
+    .item{
+        list-style:none;
+        font-size: 16px;
         display: block;
-        float: right;
-        width:400px;
-        height: 140px;
-        overflow: hidden;
-    }
-    .rank-b img {
-        width: 120px;
-        height:180px;
-    }
-    .rank-b{
-        margin-top: 50px;
+        margin: 2px;
+        padding: 2px;
+        border: solid 1px gainsboro;
     }
     .author{
         padding-left: 10px;
+        font-size: 14px;
+    }
+    .cat{
+        font-size: 14px;
+        padding: 0 10px;
     }
 </style>
 <body>
@@ -96,29 +96,14 @@
       </form>
     </div>
   </div>
-<nav class="nav-top container">
-<ul class="nav nav-pills text-center nav-flex">
-  <li role="presentation" class="active"><a href="/">首页</a></li>
-  <li role="presentation" class=""><a href="#">玄幻</a></li>
-  <li role="presentation" class=""><a href="#">武侠</a></li>
-  <li role="presentation" class=""><a href="#">仙侠</a></li>
-  <li role="presentation" class=""><a href="#">都市</a></li>
-  <li role="presentation" class=""><a href="#">职场</a></li>
-  <li role="presentation" class=""><a href="#">历史</a></li>
-  <li role="presentation" class=""><a href="#">军事</a></li>
-  <li role="presentation" class=""><a href="#">游戏</a></li>
-  <li role="presentation" class=""><a href="#">竞技</a></li>
-  <li role="presentation" class=""><a href="#">科幻</a></li>
-  <li role="presentation" class=""><a href="#">灵异</a></li>
-  <li role="presentation" class=""><a href="#">同人</a></li>
-  <li role="presentation" class=""><a href="#">轻小说</a></li>
-</ul>
-    </nav>
-  <div class="container rank">
-      {% for i,j,k,l,m in book_info%}
-<div class="rank-b"><a class="book-name lead" href="/book/{{ i }}?name={{ j }}"><img src="{{ m }}" alt="">{{ j }}</a><sapn class="author">{{ k }}</sapn><p class="intro">{{ l }}</p></div>
+  <div class="container">
+  <ul>
+      <p class="word">关于<span class="keyword">{{ keyword }}</span>的搜索结果:</p>
+      {% for i in item%}
+      <li class="item"><a href="../book/{{ i.id }}">{{ i.title }}</a><span class="author">{{ i.author }}</span><span class="cat">{{ i.cat }}</span><p class="intro">{{ i.shortIntro }}</p></li>
       {% endfor %}
-  </div>
+  </ul>
+      </div>
 <footer class="footer">
   <div class="container">
     <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
