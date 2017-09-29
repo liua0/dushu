@@ -18,12 +18,14 @@
         display: block;
         margin: 10px 0;
         padding: 0px 10px;
-        width:500px;
         font-size: 16px;
         overflow: hidden;
         height: 20px;
 
-}
+    }
+    .catalog{
+        width: 320px;
+    }
     .nove_list ul{
     padding-left: 0;
     }
@@ -43,22 +45,20 @@
         </p>
         <ol class="breadcrumb text-left">
   <li><a href="/">首页</a></li>
-  <li><a href="../../../book/{{ id }}/?name={{ book_name }}">源列表</a></li>
+  <li><a href="/book/{{ id }}/?name={{ book_name }}">源列表</a></li>
   <li class="active">{{ book_name }}</li>
 </ol>
         <div class="text-left lead nove_list dasda">
         <ul class="title-list">
             {% for i in book_list %}
-            <li><a class="list" href="/read/{{ id }}/{{ book_id }}/{{ i.titleID }}">{{ i.title }}</a></li>
+            <li class="catalog"><a class="list" href="/read/{{ id }}/{{ book_id }}/{{ i.titleID }}/?name={{ book_name }}">{{ i.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
 </div>
 <footer class="footer">
   <div class="container">
-    <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
-    <p class="text-center ">本站所收录作品均来自互联网
-    </p>
+    <p class="text-center ">本站所收录作品均来自互联网</p>
   </div>
 </footer>
 </body>

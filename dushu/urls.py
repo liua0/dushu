@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^catalog/(.+)/(.+)/', catalog),
     url(r'^read/(.+)/(.+)/([0-9]+)', read),
     url(r'^search/', search),
+    url(r'^category/', category),
 ]

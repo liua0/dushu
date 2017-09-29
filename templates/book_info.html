@@ -11,33 +11,43 @@
         text-align: left;
         display: inline-block;
     }
-    .container span{
-        font-size: 18px;
+    ul li ol{
+        padding: 0;
     }
-    .list{
+    .book-img{
         display: block;
-        width:500px;
-        height: 40px;
-
-}
-        .book-img{
-            display: block;
-            position: relative;
-            width: 140px;
-            height: 200px;
+        position: relative;
+        width: 140px;
+        height: 200px;
+    }
+    .intro{
+        position: relative;
+    }
+    .novelist{
+        padding-left: 10px;
+    }
+    .book_info{
+        margin-top: 70px;
+    }
+    .footer{
+        margin-top: 20px;
+    }
+    .catalog{
+        font-size: 18px;
         }
-        .list span {
-            font-size: 16px;
-        }
-        .intro{
-            position: relative;
-        }
-        .novelist{
-            padding-left: 10px;
-        }
-        .book_info{
-            margin-top: 70px;
-        }
+    .list{
+        height: 60px;
+    }
+    .new-title{
+        font-size: 15px;
+        padding: 5px 0px;
+    }
+    .title-name{
+        font-size: 20px;
+        display: block;
+        width: 80px;
+        padding-bottom: 10px;
+    }
     </style>
 </head>
 <body>
@@ -47,21 +57,19 @@
             {{ intro | safe |linebreaksbr }}
             </p></div>
         <ol class="breadcrumb text-left">
-  <li><a href="/">首页</a></li>
-  <li class="active">{{ book_name }}</li>
-</ol>
-        <div class="text-left lead nove_list dasda">
-        <ul class="title-list">
-        <p class="lead">源列表：</p>
+            <li>
+                <a href="/">首页</a></li>
+            <li class="active">{{ book_name }}</li>
+        </ol>
+        <div class="">
+        <p class="title-name">源列表：</p>
             {% for i,j,k,l in book_info %}
-            <li class="list" lead><a href="/catalog/{{ bookID }}/{{ j }}/?name={{ book_name }}">{{ i }}：</a><span>最新章节：{{ l }}</span></li>
+            <div class="list text-left"><a class="catalog" href="/catalog/{{ bookID }}/{{ j }}/?name={{ book_name }}">{{ i }}：</a><p class="new-title">最新：{{ l }}</p></div><br/>
             {% endfor %}
-        </ul>
     </div>
 </div>
 <footer class="footer">
   <div class="container">
-    <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
     <p class="text-center ">本站所收录作品均来自互联网
     </p>
   </div>

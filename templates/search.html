@@ -100,7 +100,7 @@
   <ul>
       <p class="word">关于<span class="keyword">{{ keyword }}</span>的搜索结果:</p>
       {% for i in item%}
-      <li class="item"><a href="../book/{{ i.id }}">{{ i.title }}</a><span class="author">{{ i.author }}</span><span class="cat">{{ i.cat }}</span><p class="intro">{{ i.shortIntro }}</p></li>
+      <li class="item"><a href="/book/{{ i.id }}">{{ i.title }}</a><span class="author">{{ i.author }}</span><span class="cat">{{ i.cat }}</span><p class="intro">{{ i.shortIntro }}</p></li>
       {% endfor %}
   </ul>
       </div>

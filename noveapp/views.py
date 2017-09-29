@@ -6,9 +6,9 @@ from json import loads
 def get_data(url):
     return loads(get(url).text)
 def book(request,id):
-    url = "http://51dushu.zhuishushenqi.com/toc?view=summary&book="+id
+    url = "http://api.zhuishushenqi.com/toc?view=summary&book="+id
     json_data = get_data(url)
-    title_data = get_data("http://51dushu.zhuishushenqi.com/book/"+id)
+    title_data = get_data("http://api.zhuishushenqi.com/book/"+id)
     book_name = title_data['title']
     author = title_data['author']
     intro = title_data['longIntro']
@@ -34,7 +34,7 @@ def book(request,id):
     return render(request,'book_info.html',context=context)
 def catalog(request,id,book_id):
     book_name = request.GET.get('name')
-    url = "http://51dushu.zhuishushenqi.com/toc/"+book_id+"?view=chapters"
+    url = "http://api.zhuishushenqi.com/toc/"+book_id+"?view=chapters"
     list_data = get_data(url)
     book_list = list_data['chapters']
     book_list_id = []
@@ -53,7 +53,7 @@ def catalog(request,id,book_id):
     return render(request, 'book.html', context=context)
 
 def index(request):
-    json_data = get_data("http://51dushu.zhuishushenqi.com/ranking/54d42d92321052167dfb75e3")
+    json_data = get_data("http://api.zhuishushenqi.com/ranking/54d42d92321052167dfb75e3")
     books = json_data['ranking']['books'][:100]
     book_id = []
     book_name = []
@@ -65,7 +65,7 @@ def index(request):
         book_name.append(i['title'])
         author.append(i['author'])
         img_src.append(("http://statics.zhuishushenqi.com"+i['cover']))
-        book_intro.append(i['shortIntro'])
+        book_intro.append(i['shortIntro'][:50]+"...")
     book_info = list(zip(book_id,book_name,author,book_intro,img_src))
     context = {
         'book_info':book_info,
@@ -73,7 +73,8 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 def read(request,id,book_id,titleID):
-    url = "http://51dushu.zhuishushenqi.com/toc/" + book_id + "?view=chapters"
+    name = request.GET.get('name')
+    url = "http://api.zhuishushenqi.com/toc/" + book_id + "?view=chapters"
     book_list = get_data(url)
     title_link = book_list['chapters'][int(titleID)]['link']
     max_title = len(book_list['chapters'])-1
@@ -92,7 +93,8 @@ def read(request,id,book_id,titleID):
         'book_id':book_id,
         'next': next_page,
         'last':last_page,
-        'id':id
+        'id':id,
+        'name':name,
     }
     return render(request,'raed.html',context=context)
 def search(request):
@@ -106,3 +108,16 @@ def search(request):
         'keyword':keyword,
     }
     return render(request,'search.html',context=context)
+
+def category(request):
+    type = request.GET.get('type')
+    data = get_data("http://api.zhuishushenqi.com/book/by-categories?gender=male&type=hot&major="+type+"&minor=&start=0&limit=20")['books']
+    for i in data:
+        i['id']=i['_id']
+        i['img_src']="http://statics.zhuishushenqi.com"+i['cover']
+        i['shortIntro'] = i['shortIntro'][:50] + "..."
+    context = {
+        'book_info':data,
+        'type':type
+    }
+    return render(request,'category.html',context=context)

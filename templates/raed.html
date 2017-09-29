@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
     <h3 class="text-center">{{ title }}</h3>
             <ol class="breadcrumb text-left">
   <li><a href="/">首页</a></li>
-  <li class="active"><a href="/book/{{ book_id }}">{{ name }}</a></li>
+  <li class="active"><a href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">{{ name }}</a></li>
 </ol>
     <div class="con-text">
         {% for text in body %}
@@ -54,17 +54,17 @@
     </div>
 <nav aria-label="...">
   <ul class="pager nav_ul lead">
-  {% if last <= 0 %}
-      <li><a class="fot_nav nav_left" href="/reading/{{ id }}{{ book_id }}">上一章</a></li>
+  {% if last < 0 %}
+      <li><a class="fot_nav nav_left" href="/catalog/{{ id }}/{{ book_id }}">上一章</a></li>
   {% else %}
-      <li><a class="fot_nav nav_left" href="./{{ last }}">上一章</a></li>
+      <li><a class="fot_nav nav_left" href="../{{ last }}/?name={{name}}">上一章</a></li>
   {% endif %}
-    <li><a class="fot_nav" href="/read/{{ id }}/{{ book_id }}">目录</a></li>
+    <li><a class="fot_nav" href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">目录</a></li>
 
       {% if next == -99%}
-          <li><a class="fot_nav nav_right" href="/read/{{ id }}/{{ book_id }}">下一章</a></li>
+          <li><a class="fot_nav nav_right" href="/catalog/{{ id }}/{{ book_id }}">下一章</a></li>
       {% else %}
-          <li><a class="fot_nav nav_right" href="./{{ next }}">下一章</a></li>
+          <li><a class="fot_nav nav_right" href="../{{ next }}/?name={{name}}">下一章</a></li>
       {% endif %}
   </ul>
 </nav>
