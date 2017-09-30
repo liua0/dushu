@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,105 +6,46 @@
     <title>我要读书网</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
-<style>
-    .test{
-        height: 1900px;
-    }
-    nav ul li{
-        display: block;
-        width: 100px;
-        font-size: 18px;
-    }
-    .nav_nav{
-        font-size: 25px;
-        margin-top: 10px;
-
-    }
-    .search_btn{
-        font-size: 15px;
-        height: 35px;
-        margin-top: 10px;
-    }
-    .nav-top{
-        display: block;
-    }
-    .nav_nav {
-        padding-left: 0;
-    }
-    .name{
-        padding-top: 25px;
-        padding-bottom: 0;
-    }
-    .rank_name{
-        display: block;
-        width: 50px;
-        height: 20px;
-        padding-top: 30px;
-        margin-left: 10px;
-        margin-bottom: 40px;
-    }
-    .footer{
-        margin-top: 20px;
-    }
-    .search-input{
-        display: block;
-        width: 500px;
-    }
-    .nav li {
-        font-size: 15px;
-        width: 75px;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 0;
-    }
-    .word{
-        font-size: 18px;
-    }
-    .keyword{
-        color: red;
-        padding:0 10px;
-
-    }
-    .item{
-        list-style:none;
-        font-size: 16px;
-        display: block;
-        margin: 2px;
-        padding: 2px;
-        border: solid 1px gainsboro;
-    }
-    .author{
-        padding-left: 10px;
-        font-size: 14px;
-    }
-    .cat{
-        font-size: 14px;
-        padding: 0 10px;
-    }
-</style>
 <body>
   <div class="container-fluid container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand nav_nav lead" href="/">我要读书网</a>
-       <form class="navbar-form navbar-left" action="./search/" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control search_btn search-input" name = 'keyword'placeholder="输入小说名或作者名">
-        </div>
-        <button type="submit" class="btn btn-default search_btn lead">搜索</button>
-      </form>
+    <div class="navbar-header text-center">
+      <h1><a class=" nav_nav lead" href="/">读书点信</a></h1>
+
     </div>
+        <div class="search">
+       <form class="" action="./search/" method="get">
+          <input type="text" class="form-control search_btn" name = 'keyword'placeholder="输入小说名或作者名">
+        <button type="submit" class="btn btn-default lead">搜索</button>
+      </form>
+        </div>
   </div>
-  <div class="container">
-  <ul>
-      <p class="word">关于<span class="keyword">{{ keyword }}</span>的搜索结果:</p>
-      {% for i in item%}
-      <li class="item"><a href="/book/{{ i.id }}">{{ i.title }}</a><span class="author">{{ i.author }}</span><span class="cat">{{ i.cat }}</span><p class="intro">{{ i.shortIntro }}</p></li>
-      {% endfor %}
-  </ul>
-      </div>
+<nav class="nav-top container">
+<ul class="nav nav-pills text-center nav-flex">
+  <li role="presentation" class="active"><a href="/">首页</a></li>
+  <li role="presentation" class=""><a href="/category/?type=玄幻">玄幻</a></li>
+  <li role="presentation" class=""><a href="/category/?type=武侠">武侠</a></li>
+  <li role="presentation" class=""><a href="/category/?type=仙侠">仙侠</a></li>
+  <li role="presentation" class=""><a href="/category/?type=都市">都市</a></li>
+  <li role="presentation" class=""><a href="/category/?type=职场">职场</a></li>
+  <li role="presentation" class=""><a href="/category/?type=历史">历史</a></li>
+  <li role="presentation" class=""><a href="/category/?type=军事">军事</a></li>
+  <li role="presentation" class=""><a href="/category/?type=游戏">游戏</a></li>
+  <li role="presentation" class=""><a href="/category/?type=竞技">竞技</a></li>
+  <li role="presentation" class=""><a href="/category/?type=科幻">科幻</a></li>
+  <li role="presentation" class=""><a href="/category/?type=灵异">灵异</a></li>
+  <li role="presentation" class=""><a href="/category/?type=同人">同人</a></li>
+  <li role="presentation" class=""><a href="/category/?type=轻小说">轻小说</a></li>
+</ul>
+    </nav>
+<nav class="nav-top container">
+ <div class="container rank">
+     <p class="word">关于 <span class="keyword">{{ keyword }}</span> 的搜索结果：</p>
+     {% for i in item %}
+     <div class="book-info"><img class="book-img" src="{{ i.cover }}" alt=""><a class="book-name" href="/book/{{ i.id }}?name={{ i.title }}">{{ i.title }}</a><sapn class="book-author">{{ i.author }}</sapn><p class="intro">{{ i.shortIntro }}</p></div>
+     {% endfor %}
+     </div>
 <footer class="footer">
   <div class="container">
     <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>

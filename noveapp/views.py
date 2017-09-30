@@ -103,10 +103,15 @@ def search(request):
     books = data['books']
     for i in books:
         i['id'] = i['_id']
+        i['cover'] = "http://statics.zhuishushenqi.com"+i['cover']
+        i['shortIntro'] = i['shortIntro'][:50] + "..."
+        if len(i['title'])>10:
+            i['title'] = i['title'][:9]+'. . .'
     context = {
         'item':books,
         'keyword':keyword,
     }
+    print(books)
     return render(request,'search.html',context=context)
 
 def category(request):
