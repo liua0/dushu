@@ -1,46 +1,14 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style>
-        body{
-            background: #ede7da;
-        }
-        h3{
-            margin-top: 40px;
-            font-size: 30px;
-            padding-bottom: 20px;
-        }
-        .content{
-        }
-        .nav_ul{
-            margin-top: 50px;
-        }
-        .fot_nav{
-            font-size: 20px;
-            color: #555;
-        }
-        .nav_left{
-         float: left;
-        }
-        .nav_right {
-            float: right;
-        }
-        .con-text{
-            line-height: 40px;
-            font-size: 18px;
-            margin: 0 auto;
-            letter-spacing: 0.15em;
-        }
-        .con-text p{
-            text-indent:2em;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
-<body>
+<body class="body">
 <div class="container">
     <h3 class="text-center">{{ title }}</h3>
             <ol class="breadcrumb text-left">

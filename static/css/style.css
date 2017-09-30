@@ -1,0 +1,210 @@
+@charset "utf-8";
+.search_btn {
+    font-size: 15px;
+    height: 35px;
+}
+
+.nav-top {
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.nav li {
+    font-size: 14px;
+    width: 73px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.book-img {
+    width: 90px;
+    height: 120px;
+}
+
+.book-name {
+    font-size: 16px;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    top: -40px;
+    left: 9px;
+}
+
+.book-author {
+    display: inline-block;
+    height: 16px;
+    font-size: 13px;
+    position: relative;
+    top: -40px;
+    left: 15px;
+}
+
+.intro {
+    display: block;
+    width: 213px;
+    position: relative;
+    top: -80px;
+    left: 100px;
+    font-size: 13px;
+    overflow: hidden;
+    margin: 0;
+    height: 70px;
+}
+
+.book-info {
+    height: 120px;
+    display: inline-block;
+    width: 320px;
+    margin-left: 20px;
+}
+
+.rank {
+    overflow: hidden;
+}
+
+.search {
+    margin-top: 15px;
+    height: 100px;
+}
+
+.search button {
+    width: 60px;
+    height: 36px;
+    display: block;
+    float: right;
+    position: relative;
+    left: auto;
+    top: -36px;
+}
+
+.nav_nav {
+    font-size: 30px;
+
+}
+
+.nove_list ul li {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+ul li ol {
+    padding: 0;
+}
+
+.info-intro {
+    position: relative;
+    font-size: 18px;
+}
+
+.novelist {
+    padding-left: 10px;
+}
+
+.book_info {
+    margin-top: 70px;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.catalog {
+    font-size: 18px;
+}
+
+.list {
+    height: 60px;
+}
+
+.new-title {
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.title-name {
+    font-size: 20px;
+    display: block;
+    width: 80px;
+    padding-bottom: 10px;
+}
+
+.body {
+    background: #ede7da;
+}
+
+h3 {
+    margin-top: 40px;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.nav_ul {
+    margin-top: 50px;
+}
+
+.fot_nav {
+    font-size: 20px;
+    color: #555;
+}
+
+.nav_left {
+    float: left;
+}
+
+.nav_right {
+    float: right;
+}
+
+.con-text {
+    line-height: 40px;
+    font-size: 18px;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+}
+
+.con-text p {
+    text-indent: 2em;
+}
+
+.nove_list ul li {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.container span {
+    font-size: 18px;
+}
+
+.catalog-list {
+    display: block;
+    margin: 10px 0;
+    padding: 0px 10px;
+    font-size: 16px;
+    overflow: hidden;
+    height: 20px;
+
+}
+
+.catalog {
+    width: 320px;
+}
+
+.nove_list ul {
+    padding-left: 0;
+}
+
+.introduction {
+    font-size: 18px;
+}
+
+.novelist {
+    padding-left: 8px;
+}

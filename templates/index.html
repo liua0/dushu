@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,85 +6,8 @@
     <title>我要读书网</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
 </head>
-<style>
-    .search_btn{
-        font-size: 15px;
-        height: 35px;
-    }
-    .nav-top{
-        display: block;
-        margin-top: -20px;
-        margin-bottom: 20px;
-    }
-    .footer{
-        margin-top: 20px;
-    }
-    .nav li {
-        font-size: 14px;
-        width: 73px;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 0;
-    }
-    .book-img{
-        width: 90px;
-        height: 120px;
-    }
-    .book-name{
-        font-size: 16px;
-        display: inline-block;
-        height: 16px;
-        position: relative;
-        top: -40px;
-        left: 5px;
-    }
-    .book-author{
-        display: inline-block;
-        height:16px;
-        font-size: 13px;
-        position: relative;
-        top: -40px;
-        left: 10px;
-    }
-    .intro{
-        display: block;
-        width: 213px;
-        position: relative;
-        top: -80px;
-        left: 93px;
-        font-size: 13px;
-        overflow: hidden;
-        margin: 0;
-        height: 70px;
-    }
-    .book-info{
-        height: 120px;
-        display: inline-block;
-        width: 320px;
-        margin-left: 20px;
-    }
-    .rank{
-        overflow: hidden;
-    }
-    .search{
-        margin-top: 15px;
-        height: 100px;
-    }
-    .search button{
-        width: 60px;
-        height:36px;
-        display: block;
-        float: right;
-        position: relative;
-        left: auto;
-        top: -36px;
-    }
-    .nav_nav{
-        font-size: 30px;
-
-    }
-</style>
 <body>
   <div class="container-fluid container">
     <div class="navbar-header text-center">
