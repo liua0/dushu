@@ -19,7 +19,7 @@ from noveapp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    url(r'^$', index,name="index"),
     url(r'^book/(.+)/', book),
     url(r'^catalog/(.+)/(.+)/', catalog),
     url(r'^read/(.+)/(.+)/([0-9]+)', read),

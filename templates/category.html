@@ -1,26 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>我要读书网</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-</head>
-<body>
-<div class="container-fluid container">
-    <div class="navbar-header text-center">
-        <h1><a class=" nav_nav lead" href="/">读书点信</a></h1>
-
-    </div>
-    <div class="search">
-        <form class="" action="./search/" method="get">
-            <input type="text" class="form-control search_btn" name='keyword' placeholder="输入小说名或作者名">
-            <button type="submit" class="btn btn-default lead">搜索</button>
-        </form>
-    </div>
-</div>
+{% extends 'base.html' %}
+{% block search %}
+        <div class="search">
+       <form class="" action="./search/" method="get">
+          <input type="text" class="form-control search_btn" name = 'keyword'placeholder="输入小说名或作者名">
+        <button type="submit" class="btn btn-default lead">搜索</button>
+      </form>
+        </div>
+{% endblock %}
+{% block nav %}
 <nav class="nav-top container">
     <ul class="nav nav-pills text-center nav-flex">
         <li role="presentation" class=""><a href="/">首页</a></li>
@@ -210,6 +197,8 @@
         {% endif %}
     </ul>
 </nav>
+{% endblock %}
+{% block index %}
 <div class="container rank">
     {% for i in book_info %}
         <div class="book-info"><img class="book-img" src="{{ i.img_src }}" alt=""><a class="book-name" href="/book/{{ i.id }}?name={{ i.title }}">{{ i.title }}</a>
@@ -217,12 +206,4 @@
             <p class="intro">{{ i.shortIntro | safe }}</p></div>
     {% endfor %}
 </div>
-<footer class="footer">
-    <div class="container">
-        <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
-        <p class="text-center ">本站所收录作品均来自互联网
-        </p>
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}

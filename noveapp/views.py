@@ -111,7 +111,6 @@ def search(request):
         'item':books,
         'keyword':keyword,
     }
-    print(books)
     return render(request,'search.html',context=context)
 
 def category(request):
