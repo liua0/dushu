@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block search %}
             <div class="search">
-       <form class="" action="./search/" method="get">
+       <form class="" action="{% url 'search' %}" method="get">
           <input type="text" class="form-control search_btn" name = 'keyword'placeholder="{{ keyword }}">
         <button type="submit" class="btn btn-default lead">搜索</button>
       </form>
@@ -10,20 +10,20 @@
 {% block nav %}
 <nav class="nav-top container">
 <ul class="nav nav-pills text-center nav-flex">
-  <li role="presentation" class="active"><a href="/">首页</a></li>
-  <li role="presentation" class=""><a href="/category/?type=玄幻">玄幻</a></li>
-  <li role="presentation" class=""><a href="/category/?type=武侠">武侠</a></li>
-  <li role="presentation" class=""><a href="/category/?type=仙侠">仙侠</a></li>
-  <li role="presentation" class=""><a href="/category/?type=都市">都市</a></li>
-  <li role="presentation" class=""><a href="/category/?type=职场">职场</a></li>
-  <li role="presentation" class=""><a href="/category/?type=历史">历史</a></li>
-  <li role="presentation" class=""><a href="/category/?type=军事">军事</a></li>
-  <li role="presentation" class=""><a href="/category/?type=游戏">游戏</a></li>
-  <li role="presentation" class=""><a href="/category/?type=竞技">竞技</a></li>
-  <li role="presentation" class=""><a href="/category/?type=科幻">科幻</a></li>
-  <li role="presentation" class=""><a href="/category/?type=灵异">灵异</a></li>
-  <li role="presentation" class=""><a href="/category/?type=同人">同人</a></li>
-  <li role="presentation" class=""><a href="/category/?type=轻小说">轻小说</a></li>
+  <li role="presentation" class="active"><a href="{% url 'index' %}">首页</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+  <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
 </ul>
     </nav>
 {% endblock %}
@@ -31,7 +31,7 @@
  <div class="container rank">
      <p class="word">关于 <span class="keyword">{{ keyword }}</span> 的搜索结果：</p>
      {% for i in item %}
-     <div class="book-info"><img class="book-img" src="{{ i.cover }}" alt=""><a class="book-name" href="/book/{{ i.id }}?name={{ i.title }}">{{ i.title }}</a><sapn class="book-author">{{ i.author }}</sapn><p class="intro">{{ i.shortIntro }}</p></div>
+     <div class="book-info"><img class="book-img" src="{{ i.cover }}" alt=""><a class="book-name" href="{% url 'book' i.id %}?name={{ i.title }}">{{ i.title }}</a><sapn class="book-author">{{ i.author }}</sapn><p class="intro">{{ i.shortIntro }}</p></div>
      {% endfor %}
      </div>
 {% endblock %}

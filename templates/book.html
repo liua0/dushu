@@ -15,13 +15,13 @@
         </p>
         <ol class="breadcrumb text-left">
   <li><a href="/">首页</a></li>
-  <li><a href="/book/{{ id }}/?name={{ book_name }}">源列表</a></li>
+  <li><a href="{% url 'book' id %}?name={{ book_name }}">源列表</a></li>
   <li class="active">{{ book_name }}</li>
 </ol>
         <div class="text-left lead nove_list dasda">
         <ul class="title-list">
             {% for i in book_list %}
-            <li class="catalog"><a class="catalog-list" href="/read/{{ id }}/{{ book_id }}/{{ i.titleID }}/?name={{ book_name }}">{{ i.title }}</a></li>
+            <li class="catalog"><a class="catalog-list" href="{% url 'read' id book_id i.titleID %}?name={{ book_name }}">{{ i.title }}</a></li>
             {% endfor %}
         </ul>
     </div>

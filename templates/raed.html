@@ -11,8 +11,8 @@
 <div class="container">
     <h3 class="text-center">{{ title }}</h3>
             <ol class="breadcrumb text-left">
-  <li><a href="/">首页</a></li>
-  <li class="active"><a href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">{{ name }}</a></li>
+  <li><a href="{% url 'index' %}">首页</a></li>
+  <li class="active"><a href="{% url 'catalog' id book_id %}?name={{ name }}">{{ name }}</a></li>
 </ol>
     <div class="con-text">
         {% for text in body %}
@@ -22,23 +22,22 @@
 <nav aria-label="...">
   <ul class="pager nav_ul lead">
   {% if last < 0 %}
-      <li><a class="fot_nav nav_left" href="/catalog/{{ id }}/{{ book_id }}">上一章</a></li>
+      <li><a class="fot_nav nav_left" href="{% url 'catalog' id book_id %}?name={{ name }}">上一章</a></li>
   {% else %}
-      <li><a class="fot_nav nav_left" href="../{{ last }}/?name={{name}}">上一章</a></li>
+      <li><a class="fot_nav nav_left" href="{% url 'read' id book_id last %}?name={{name}}">上一章</a></li>
   {% endif %}
     <li><a class="fot_nav" href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">目录</a></li>
 
       {% if next == -99%}
-          <li><a class="fot_nav nav_right" href="/catalog/{{ id }}/{{ book_id }}">下一章</a></li>
+          <li><a class="fot_nav nav_right" href="{% url 'catalog' id book_id %}?name={{ name }}">下一章</a></li>
       {% else %}
-          <li><a class="fot_nav nav_right" href="../{{ next }}/?name={{name}}">下一章</a></li>
+          <li><a class="fot_nav nav_right" href="{% url 'read' id book_id next %}?name={{name}}">下一章</a></li>
       {% endif %}
   </ul>
 </nav>
 </div>
 <footer class="footer">
   <div class="container">
-    <p class="text-center ">如果版权人认为在本站放置您的作品有损您的利益，请发邮件至admin@niurenzm.com，本站确认后将会立即删除。</p>
     <p class="text-center ">本站所收录作品均来自互联网
     </p>
   </div>

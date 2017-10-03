@@ -15,13 +15,13 @@
             </p></div>
         <ol class="breadcrumb text-left">
             <li>
-                <a href="/">首页</a></li>
+                <a href="{% url 'index' %}">首页</a></li>
             <li class="active">{{ book_name }}</li>
         </ol>
         <div class="">
         <p class="title-name">源列表：</p>
             {% for i,j,k,l in book_info %}
-            <div class="list text-left"><a class="catalog" href="/catalog/{{ bookID }}/{{ j }}/?name={{ book_name }}">{{ i }}：</a><p class="new-title">最新：{{ l }}</p></div><br/>
+            <div class="list text-left"><a class="catalog" href="{% url 'catalog' bookID j %}?name={{ book_name }}">{{ i }}：</a><p class="new-title">最新：{{ l }}</p></div><br/>
             {% endfor %}
     </div>
 </div>
