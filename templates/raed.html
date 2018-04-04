@@ -1,14 +1,15 @@
-﻿<!DOCTYPE html>
+﻿{% load staticfiles %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://weawe-10021894.cossh.myqcloud.com/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="body">
-<div class="container">
+<div class="container read-body">
     <h3 class="text-center">{{ title }}</h3>
             <ol class="breadcrumb text-left">
   <li><a href="{% url 'index' %}">首页</a></li>
@@ -16,7 +17,7 @@
 </ol>
     <div class="con-text">
         {% for text in body %}
-            <p>{{ text }}</p><br/>
+            <p>{{ text }}</p><br />
         {% endfor %}
     </div>
 <nav aria-label="...">

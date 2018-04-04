@@ -135,16 +135,14 @@ ul li ol {
     padding-bottom: 10px;
 }
 
-.body {
-    background: #ede7da;
-}
-
 h3 {
     margin-top: 40px;
     font-size: 30px;
     padding-bottom: 20px;
 }
-
+.body{
+    background: #d1d6be;
+}
 .nav_ul {
     margin-top: 50px;
 }
@@ -163,10 +161,10 @@ h3 {
 }
 
 .con-text {
-    line-height: 40px;
-    font-size: 18px;
+    line-height: 27px;
+    font-size: 16px;
     margin: 0 auto;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.11em;
 }
 
 .con-text p {
@@ -219,4 +217,9 @@ h3 {
 .item{
     width: 400px;
     height:250px;
+}
+.read-body{
+    background: #e9e6d0;
+    width: 800px;
+
 }
