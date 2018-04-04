@@ -26,8 +26,8 @@ def book(request,id):
     '''
 
     # 拼接URL
-    yuan_url = "http://api.zhuishushenqi.com/toc?view=summary&book="+id
-    book_url = "http://api.zhuishushenqi.com/book/"+id
+    yuan_url = "https://api.zhuishushenqi.com/toc?view=summary&book="+id
+    book_url = "https://api.zhuishushenqi.com/book/"+id
 
     # 获得数据
     json_data = get_data(yuan_url)
@@ -76,7 +76,7 @@ def catalog(request,id,book_id):
     book_name = request.GET.get('name')
 
     # 拼接URL
-    url = "http://api.zhuishushenqi.com/toc/"+book_id+"?view=chapters"
+    url = "https://api.zhuishushenqi.com/toc/"+book_id+"?view=chapters"
 
     # 获得数据
     catalog_data = get_data(url)
@@ -114,7 +114,7 @@ def index(request):
     '''
 
     # 拼接URL
-    url = "http://api.zhuishushenqi.com/ranking/54d42d92321052167dfb75e3"
+    url = "https://api.zhuishushenqi.com/ranking/54d42d92321052167dfb75e3"
 
     # 获得数据
     json_data = get_data(url)
@@ -134,7 +134,7 @@ def index(request):
         author.append(_index['author'])
 
         # 拼接书籍封面URL
-        img_src.append(("http://statics.zhuishushenqi.com"+_index['cover']))
+        img_src.append(("https://statics.zhuishushenqi.com"+_index['cover']))
 
         # 只保留简介前50个字
         book_intro.append(_index['shortIntro'][:50]+"...")
@@ -163,7 +163,7 @@ def read(request,id,book_id,titleID):
     name = request.GET.get('name')
 
     # 拼接URL
-    url = "http://api.zhuishushenqi.com/toc/" + book_id + "?view=chapters"
+    url = "https://api.zhuishushenqi.com/toc/" + book_id + "?view=chapters"
 
     # 获得数据
     book_list = get_data(url)
@@ -180,7 +180,7 @@ def read(request,id,book_id,titleID):
         .replace('?','%3F').replace('&','%26').replace('=','%3D')
 
     # 获得章节内容
-    content_url = "http://chapterup.zhuishushenqi.com/chapter/"+title_link
+    content_url = "https://chapterup.zhuishushenqi.com/chapter/"+title_link
     content_data = get_data(content_url)
     content_body = content_data['chapter']['body']
 
@@ -219,14 +219,14 @@ def search(request):
     keyword = request.GET.get('keyword')
 
     # 拼接URL
-    query_url = 'http://api.zhuishushenqi.com/book/fuzzy-search?query='+keyword
+    query_url = 'https://api.zhuishushenqi.com/book/fuzzy-search?query='+keyword
 
     # 数据处理
     data = get_data(query_url)
     books = data['books']
     for _book in books:
         _book['id'] = _book['_id']
-        _book['cover'] = "http://statics.zhuishushenqi.com"+_book['cover']
+        _book['cover'] = "https://statics.zhuishushenqi.com"+_book['cover']
         _book['shortIntro'] = _book['shortIntro'][:50] + "..."
         if len(_book['title'])>10:
             _book['title'] = _book['title'][:9]+'. . .'
@@ -250,7 +250,7 @@ def category(request):
     type = request.GET.get('type')
 
     # 请求API
-    url = "http://api.zhuishushenqi.com/book/by-categories?gender=male&type=hot&major="\
+    url = "https://api.zhuishushenqi.com/book/by-categories?gender=male&type=hot&major="\
           +type+"&minor=&start=0&limit=20"
     data = get_data(url)
 
@@ -258,7 +258,7 @@ def category(request):
     data = data['books']
     for item in data:
         item['id']=item['_id']
-        item['img_src']="http://statics.zhuishushenqi.com"+item['cover']
+        item['img_src']="https://statics.zhuishushenqi.com"+item['cover']
         item['shortIntro'] = item['shortIntro'][:50] + "..."
 
     context = {
@@ -267,9 +267,3 @@ def category(request):
     }
 
     return render(request,'category.html',context=context)
-
-
-def test(request):
-    obj = Test()
-    print(obj._meta)
-    return HttpResponse("OK")
