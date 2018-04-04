@@ -1,4 +1,7 @@
 @charset "utf-8";
+body{
+    font-family:Microsoft YaHei;
+}
 .search_btn {
     font-size: 15px;
     height: 35px;
@@ -62,6 +65,7 @@
     display: inline-block;
     width: 320px;
     margin-left: 20px;
+    margin-bottom: 30px;
 }
 
 .rank {
@@ -135,14 +139,16 @@ ul li ol {
     padding-bottom: 10px;
 }
 
+.body {
+    background: #ede7da;
+}
+
 h3 {
     margin-top: 40px;
     font-size: 30px;
     padding-bottom: 20px;
 }
-.body{
-    background: #d1d6be;
-}
+
 .nav_ul {
     margin-top: 50px;
 }
@@ -162,7 +168,7 @@ h3 {
 
 .con-text {
     line-height: 27px;
-    font-size: 16px;
+    font-size: 20px;
     margin: 0 auto;
     letter-spacing: 0.11em;
 }
@@ -217,9 +223,4 @@ h3 {
 .item{
     width: 400px;
     height:250px;
-}
-.read-body{
-    background: #e9e6d0;
-    width: 800px;
-
 }

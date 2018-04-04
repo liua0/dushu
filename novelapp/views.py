@@ -141,7 +141,6 @@ def index(request):
 
     #整合数据
     book_info = list(zip(book_id,book_name,author,book_intro,img_src))
-
     context = {
         'book_info':book_info,
     }
