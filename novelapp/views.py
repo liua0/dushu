@@ -204,7 +204,7 @@ def read(request,id,book_id,titleID):
         'name':name,
     }
 
-    return render(request,'raed.html',context=context)
+    return render(request,'read.html',context=context)
 
 
 def search(request):
