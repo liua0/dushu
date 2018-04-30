@@ -139,9 +139,6 @@ ul li ol {
     padding-bottom: 10px;
 }
 
-.body {
-    background: #ede7da;
-}
 
 h3 {
     margin-top: 40px;
@@ -161,31 +158,52 @@ h3 {
 .nav_right {
     float: right;
 }
-@media only screen and (min-width: 1029px){
-.con-text {
-    width: 800px;
-    padding: 20px;
-    background-color:#e9e6d0;
-    color: #755927;
-    line-height: 35px;
-    font-size: 17px;
-    margin: 0 auto;
-    letter-spacing: 0.11em;
+
+/* PC */
+@media only screen and (min-width: 996px){
+    .con-text {
+        width: 800px;
+        padding: 20px;
+        background-color:#e9e6d0;
+        color: #755927;
+        line-height: 35px;
+        font-size: 17px;
+        margin: 0 auto;
+        letter-spacing: 0.11em;
+    }
+
+    .nav_ul {
+        margin: 0 auto;
+        width: 800px;
+    }
+    .read-bg{
+        background-color:#d1d6be;
+    }
 }
-.nav_ul {
-    margin: 0 auto;
-    width: 800px;
+
+/* 移动设备 */
+@media only screen and (max-width: 768px){
+
+    .read-bg{
+        background-color:#e9e6d0;
+    }
+    .con-text {
+        padding: 10px;
+        background-color:#e9e6d0;
+        color: #755927;
+        line-height: 23px;
+        font-size: 14px;
+        margin: 0 auto;
+        letter-spacing: 0.1em;
+    }
+
 }
+
+.read-body{
+    padding: 0;
 }
-.con-text {
-    padding: 20px;
-    background-color:#e9e6d0;
-    color: #755927;
-    line-height: 35px;
-    font-size: 17px;
-    margin: 0 auto;
-    letter-spacing: 0.11em;
-}
+
+
 
 .con-text p {
     text-indent: 2em;

@@ -112,7 +112,7 @@ def index(request):
     :param request:
     :return:
     '''
-
+    print(request.META.get('HTTP_USER_AGENT'))
     # 拼接URL
     url = "https://api.zhuishushenqi.com/ranking/54d42d92321052167dfb75e3"
 
@@ -216,7 +216,6 @@ def search(request):
 
     # 获得搜索关键字
     keyword = request.GET.get('keyword')
-
     # 拼接URL
     query_url = 'https://api.zhuishushenqi.com/book/fuzzy-search?query='+keyword
 
