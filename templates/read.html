@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="body">
+<body style="background:#d1d6be">
 <div class="container read-body">
     <h3 class="text-center">{{ title }}</h3>
             <ol class="breadcrumb text-left">
@@ -17,27 +17,26 @@
 </ol>
     <div class="con-text">
         {% for text in body %}
-            <p>{{ text }}</p><br />
+            <p>{{ text }}</p>
         {% endfor %}
     </div>
-<nav aria-label="...">
-  <ul class="pager nav_ul lead">
-  {% if last < 0 %}
-      <li><a class="fot_nav nav_left" href="{% url 'catalog' id book_id %}?name={{ name }}">上一章</a></li>
-  {% else %}
-      <li><a class="fot_nav nav_left" href="{% url 'read' id book_id last %}?name={{name}}">上一章</a></li>
-  {% endif %}
-    <li><a class="fot_nav" href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">目录</a></li>
-
-      {% if next == -99%}
-          <li><a class="fot_nav nav_right" href="{% url 'catalog' id book_id %}?name={{ name }}">下一章</a></li>
-      {% else %}
-          <li><a class="fot_nav nav_right" href="{% url 'read' id book_id next %}?name={{name}}">下一章</a></li>
-      {% endif %}
-  </ul>
-</nav>
 </div>
 <footer class="footer">
+    <nav aria-label="... footer-nav">
+        <ul class="pager nav_ul">
+            {% if last < 0 %}
+                <li><a class="fot_nav nav_left" href="{% url 'catalog' id book_id %}?name={{ name }}">上一章</a></li>
+            {% else %}
+                <li><a class="fot_nav nav_left" href="{% url 'read' id book_id last %}?name={{name}}">上一章</a></li>
+            {% endif %}
+                <li><a class="fot_nav" href="/catalog/{{ id }}/{{ book_id }}/?name={{ name }}">目录</a></li>
+            {% if next == -99%}
+                <li><a class="fot_nav nav_right" href="{% url 'catalog' id book_id %}?name={{ name }}">下一章</a></li>
+            {% else %}
+                <li><a class="fot_nav nav_right" href="{% url 'read' id book_id next %}?name={{name}}">下一章</a></li>
+            {% endif %}
+        </ul>
+    </nav>
   <div class="container">
     <p class="text-center ">本站所收录作品均来自互联网
          <br />
