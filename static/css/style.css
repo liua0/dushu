@@ -7,22 +7,28 @@ body{
     height: 35px;
 }
 
-.nav-top {
+.nav-bar {
     display: block;
     margin-top: -20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .footer {
     margin-top: 20px;
 }
 
+.nav{
+    clear: both;
+}
 .nav li {
-    font-size: 14px;
-    width: 73px;
+    font-size: 15px;
     margin-left: 0;
     margin-right: 0;
-    padding: 0;
+}
+
+.nav li a{
+    padding: 11px 17px;
+    clear: both;
 }
 
 .book-img {
@@ -72,14 +78,13 @@ body{
     overflow: hidden;
 }
 
-.search {
-    margin-top: 15px;
-    height: 100px;
+.search-bar {
+    height: 60px;
 }
 
-.search button {
+.search-bar button {
     width: 60px;
-    height: 35px;
+    height: 34px;
     display: block;
     float: right;
     position: relative;
@@ -87,9 +92,12 @@ body{
     top: -35px;
 }
 
-.nav_nav {
-    font-size: 30px;
+.header-bar{
+    margin-bottom: 20px;
+}
 
+.site-title {
+    font-size: 25px;
 }
 
 .nove_list ul li {
@@ -146,6 +154,13 @@ h3 {
     padding-bottom: 20px;
 }
 
+.hint{
+    font-size: 16px;
+    display: block;
+    font-weight: bold;
+    padding: 5px 5px 25px 5px;
+}
+
 .fot_nav {
     font-size: 15px;
     color: #555;
@@ -172,12 +187,23 @@ h3 {
         letter-spacing: 0.11em;
     }
 
-    .nav_ul {
-        margin: 0 auto;
-        width: 800px;
-    }
     .read-bg{
         background-color:#d1d6be;
+    }
+
+    .add-book input{
+        width: 600px
+    }
+
+    .nav-bar ul{
+        margin: 0 auto;
+        width: 966px;
+    }
+    .nav-bg{
+        height: 43px;
+        margin-top: 20px;
+        border-radius: 12px;
+        background-color: #D3D3D3;
     }
 }
 

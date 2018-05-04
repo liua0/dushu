@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators import cache
 
 
-from requests import get
+import requests
 from json import loads
 
 from .models import *
@@ -13,8 +14,8 @@ def get_data(url):
     :param url:API_URL
     :return: json数据
     '''
-
-    return loads(get(url).text)
+    response = requests.get(url)
+    return loads(response.text)
 
 
 def book(request,id):
@@ -106,6 +107,7 @@ def catalog(request,id,book_id):
     return render(request, 'book.html', context=context)
 
 
+#@cache.cache_page(60*20)
 def index(request):
     '''
     首页，展示排行前100的书籍
@@ -237,6 +239,7 @@ def search(request):
     return render(request,'search.html',context=context)
 
 
+#@cache.cache_page(60*20)
 def category(request):
     '''
     分类

@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from novelapp.views import *
-
+from novelapp import views as novel
+from syncBook import views as sync
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index,name="index"),
-    url(r'^book/(.+)/', book,name='book'),
-    url(r'^catalog/(.+)/(.+)/', catalog,name='catalog'),
-    url(r'^read/(.+)/(.+)/([0-9]+)', read,name='read'),
-    url(r'^search/', search,name='search'),
-    url(r'^category/', category,name='category'),
+    url(r'^$', novel.index,name="index"),
+    url(r'^book/(.+)/', novel.book,name='book'),
+    url(r'^catalog/(.+)/(.+)/', novel.catalog,name='catalog'),
+    url(r'^read/(.+)/(.+)/([0-9]+)', novel.read,name='read'),
+    url(r'^search/', novel.search,name='search'),
+    url(r'^category/', novel.category,name='category'),
+    url(r'^add_book', sync.test)
 ]

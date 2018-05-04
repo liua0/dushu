@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
+
+
+{% block siteTitle %}
+<meta name="description"  content="读书点信-{{ type }}">
+<meta name="keywords"  content="免费{{ type }}小说, {{ type }}小说在线, 完本{{ type }}小说, {{ type }}小说阅读, {{ type }}全本小说">
+{% endblock %}
+
+
 {% block search %}
-        <div class="search">
+        <div class="search-bar">
        <form class="" action="/search/" method="get">
           <input type="text" class="form-control search_btn" name = 'keyword'placeholder="输入小说名或作者名">
         <button type="submit" class="btn btn-default lead">搜索</button>
@@ -8,197 +16,199 @@
         </div>
 {% endblock %}
 {% block nav %}
-<nav class="nav-top container">
-    <ul class="nav nav-pills text-center nav-flex">
-        <li role="presentation" class=""><a href="/">首页</a></li>
-        {% if type == '玄幻' %}
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '武侠' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '仙侠' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '都市' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '职场' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '历史' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '军事' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '游戏' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '竞技' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '科幻' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-            </ul>
-        {% elif type == '灵异' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '同人' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% elif type == '轻小说' %}
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
-            <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
-            <li role="presentation" class="active"><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
-        {% endif %}
-    </ul>
+<nav class="nav-bar container">
+    <div class="nav-bg">
+        <ul class="nav nav-pills text-center nav-flex">
+            <li role="presentation" class=""><a href="/">首页</a></li>
+            {% if type == '玄幻' %}
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '武侠' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '仙侠' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '都市' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '职场' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '历史' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '军事' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '游戏' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '竞技' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '科幻' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+                </ul>
+            {% elif type == '灵异' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '同人' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% elif type == '轻小说' %}
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=玄幻">玄幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=武侠">武侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=仙侠">仙侠</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=都市">都市</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=职场">职场</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=历史">历史</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=军事">军事</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=游戏">游戏</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=竞技">竞技</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=科幻">科幻</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=灵异">灵异</a></li>
+                <li role="presentation" class=""><a href="{% url 'category' %}?type=同人">同人</a></li>
+                <li role="presentation" class="active"><a href="{% url 'category' %}?type=轻小说">轻小说</a></li>
+            {% endif %}
+        </ul>
+    </div>
 </nav>
 {% endblock %}
-{% block index %}
+{% block body %}
 <div class="container rank">
     {% for i in book_info %}
         <div class="book-info"><img class="book-img" src="{{ i.img_src }}" alt=""><a class="book-name" href="{% url 'book' i.id %}?name={{ i.title }}">{{ i.title }}</a>
